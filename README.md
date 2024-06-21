@@ -4,7 +4,7 @@
 
 - [x] Develop _angular_ project about surveillance system advertising implementing _internationalization_. Add and maintain global _NgRx_ state. Create _service_ to handle _global styles_.
 - [x] Cover project with _tests_. Implement _unit testing_ for several _modules_ and or _standalone components_.
-- [ ] Deploy project usning _github pages_. Deploying has to be provided along with _pushing changes_ to _github_.
+- [x] Deploy project usning _github pages_. Deploying has to be provided along with _pushing changes_ to _github_.
 - [x] Complete several optional tasks if needed.
 
 ## Stack
