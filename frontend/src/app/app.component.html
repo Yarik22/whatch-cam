@@ -1,0 +1,139 @@
+<ng-container *ngIf="!pageIsNotFound">
+  <header [ngClass]="{ isScrolled }">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/8334/8334315.png"
+            alt="Logo"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <div class="logoText">{{ "WhatchCam camera surveillance" | translate }}</div>
+        <div class="opt">
+          <ul class="language navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="languageDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {{ "language" | translate }}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                @for (lang of languages; track $index) {
+                <li>
+                  <a class="dropdown-item" (click)="changeLanguage(lang)">{{
+                    lang | translate
+                  }}</a>
+                </li>
+                }
+              </ul>
+            </li>
+            <li class="nav-item">
+              <div class="form-check form-switch d-flex align-items-center">
+                <input
+                  [checked]="!isDarkTheme"
+                  class="form-check-input"
+                  type="checkbox"
+                  id="themeSwitcher"
+                  (change)="toggleTheme()"
+                />
+                <label class="form-check-label ms-2" for="themeSwitcher">
+                  <i class="bi bi-sun" *ngIf="isDarkTheme"></i>
+                  <i class="bi bi-moon" *ngIf="!isDarkTheme"></i>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+</ng-container>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<ng-container *ngIf="!pageIsNotFound">
+  <footer class="footer mt-5 py-4 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>{{ "Contact Information" | translate }}</h5>
+          <p>
+            {{ "City" | translate }}: {{ "Mykolaiv (Ukraine)" | translate
+            }}<br />
+            {{ "Phone" | translate }}:
+            <span
+              class="text-white copy-text"
+              (click)="copyToClipboard(phone)"
+              title="Copy phone number to clipboard"
+            >
+              {{ phone }}
+            </span>
+          </p>
+          <p>
+            {{ "Email" | translate }}:
+            <span
+              class="text-white copy-text"
+              (click)="copyToClipboard(email)"
+              title="Copy email address to clipboard"
+            >
+              {{ email }}
+            </span>
+          </p>
+        </div>
+
+        <div class="col-md-6">
+          <h5>{{ "Send us an Email" | translate }}</h5>
+          <form (submit)="sendEmail($event)">
+            <div class="form-group">
+              <label for="subject">{{ "Subject" | translate }}:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="subject"
+                [(ngModel)]="subject"
+                name="subject"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="body">{{ "Message" | translate }}:</label>
+              <textarea
+                class="form-control"
+                id="body"
+                [(ngModel)]="message"
+                name="body"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">
+              {{ "Send" | translate }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+</ng-container>
+
+<button class="scroll-to-top" (click)="scrollToTop()" [class.show]="isScrolled">
+  &#8679;
+</button>
+
+<div
+  [ngClass]="{
+    notification: true,
+    show: showNotification,
+    hide: !showNotification
+  }"
+>
+  {{ notificationMessage }}
+</div>

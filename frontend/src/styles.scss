@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background);
+}
+
+@font-face {
+  font-family: "Fredoka";
+  src: url("./assets/fonts/Fredoka-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+  font-family: "Exo";
+  src: url("./assets/fonts/Exo2-VariableFont_wght.ttf") format("truetype"),
+    url("./assets/fonts/Exo2-Italic-VariableFont_wght.ttf") format("truetype");
+}
+
+/* Apply the font to the entire document */
+body {
+  font-family: "Exo", sans-serif;
+  transition: background-color 0.5s;
+  overflow-x: hidden;
+}
+img {
+  user-select: none;
+}

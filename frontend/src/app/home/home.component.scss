@@ -1,0 +1,40 @@
+.wrapper {
+  padding: 12px;
+}
+
+.card {
+  transition: 0.5s ease;
+  margin-bottom: 20px;
+  background: var(--secondaryColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  color: var(--textOnSecondary);
+  font-size: 1.25rem;
+}
+
+.card-text {
+  color: var(--textOnSecondary);
+  flex-grow: 1;
+}
+
+.btn-primary {
+  background-color: var(--btn);
+  border-color: none;
+  &:hover {
+    background-color: var(--secondaryColor);
+  }
+}
+img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  img {
+    height: 200px;
+  }
+}
